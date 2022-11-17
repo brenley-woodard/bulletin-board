@@ -1,1 +1,1 @@
-Hi Ben!
+![](./rubric.png)
