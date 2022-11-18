@@ -1,6 +1,6 @@
 /* Imports */
 
-import { signUpUser } from './fetch-utils.js';
+import { redirectIfLoggedIn, signUpUser } from './fetch-utils.js';
 
 /* Get DOM Elements */
 const signUpForm = document.getElementById('sign-up');
@@ -12,6 +12,12 @@ const signUpPassword = document.getElementById('sign-up-password');
 signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const user = await signUpUser(signUpEmail.value, signUpPassword.value);
+
+    if (user) {
+        redirectIfLoggedIn();
+    } else {
+        console.error(user);
+    }
 });
 
 /* Display Functions */
