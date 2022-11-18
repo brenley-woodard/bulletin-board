@@ -38,3 +38,7 @@ export async function addPost(post) {
         console.log(response.error);
     }
 }
+export async function checkAuth() {
+    const user = await getUser();
+    if (!user) location.replace('/');
+}

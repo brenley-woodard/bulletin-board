@@ -1,5 +1,6 @@
-import { addPost } from '../fetch-utils.js';
+import { addPost, checkAuth } from '../fetch-utils.js';
 
+checkAuth();
 const createForm = document.getElementById('form');
 
 // const titleInput = document.getElementById('title');
