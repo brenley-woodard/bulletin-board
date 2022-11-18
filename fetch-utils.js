@@ -25,6 +25,7 @@ export async function signInUser(email, password) {
 }
 
 export async function fetchPost() {
-    const response = await client.from('post').select('*');
+    const response = await client.from('posts').select('*');
     return response.data;
+    console.log(response);
 }
