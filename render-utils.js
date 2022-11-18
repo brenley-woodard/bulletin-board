@@ -10,6 +10,7 @@ export function renderPost(post) {
     const p2 = document.createElement('p');
     p2.textContent = post.contact;
 
+    div.classList.add('object');
     div.append(h3, p, p2);
     return div;
 }
