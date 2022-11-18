@@ -1,8 +1,9 @@
-import { fetchPost, checkAuth } from '../fetch-utils.js';
+import { fetchPost, checkAuth, logout } from '../fetch-utils.js';
 import { renderPost } from '../render-utils.js';
 
 const createButton = document.getElementById('create');
 const postContainer = document.getElementById('bulletin-board');
+const logoutButton = document.getElementById('logout');
 
 checkAuth();
 
@@ -15,4 +16,8 @@ window.addEventListener('load', async () => {
         const postEl = renderPost(post);
         postContainer.append(postEl);
     }
+});
+
+logoutButton.addEventListener('click', () => {
+    logout();
 });
