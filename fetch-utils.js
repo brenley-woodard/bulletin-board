@@ -13,19 +13,28 @@ export async function signUpUser(email, password) {
     return response.user;
 }
 
+export async function signInUser(email, password) {
+    const response = await client.auth.signIn({ email, password });
+    return response.user;
+}
+
 export async function redirectIfLoggedIn() {
     if (await getUser()) {
         location.replace('./bulletin-page');
     }
 }
 
-export async function signInUser(email, password) {
-    const response = await client.auth.signIn({ email, password });
-    return response.user;
-}
-
 export async function fetchPost() {
     const response = await client.from('posts').select('*');
     return response.data;
-    console.log(response);
+}
+
+export async function addPost(post) {
+    const response = await client.from('posts').insert(post);
+    console.log(response.data);
+    if (response.data) {
+        return response.data;
+    } else {
+        console.log(response.error);
+    }
 }
